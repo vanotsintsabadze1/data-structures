@@ -61,9 +61,9 @@ class DynamicList<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        foreach (T item in _items)
+        for (int i = 0; i < _size; i++)
         {
-            yield return item;
+            yield return _items[i];
         }
     }
 
@@ -92,7 +92,7 @@ class DynamicList<T> : IEnumerable<T>
         {
             _items[i] = _items[i + 1];
         }
-        _items[--_size] = default!;
+        _size--;
 
     }
 
