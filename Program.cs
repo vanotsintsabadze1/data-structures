@@ -1,25 +1,23 @@
-﻿using Practice.Lists;
-
+﻿using Practice.Stack;
 namespace Practice;
 
 class Program
 { 
     public static void Main()
     {
-        DynamicList<int> dArr = new();
+        CustomStack<int> cs = new();
 
-        dArr.Add(6);
-        dArr.Add(2);
-        dArr.Add(3);
-        dArr.Add(4);
-        dArr.GetAll();
-        dArr.Remove(2);
-        dArr.GetAll();
-        dArr.RemoveAt(dArr.Count - 1);
+        cs.Add(22);
+        cs.Add(10);
+        cs.Add(4);
+        cs.Add(8);
+        cs.Peek();
+        cs.GetAll();
+        cs.Remove();
+        Console.WriteLine();
+        cs.GetAll();
+        bool isEmp = cs.isEmpty();
+        Console.WriteLine($"\nIs the Stack Empty? - {isEmp}");
 
-        foreach(int i in dArr)
-        {
-            Console.Write(i);
-        }
     }
 }
