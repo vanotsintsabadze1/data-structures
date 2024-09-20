@@ -1,38 +1,31 @@
-﻿using Practice.Queue;
+﻿using Practice.Lists;
 namespace Practice;
 
 class Program
 { 
+    public static void PrintValues(CustomLinkedList cll)
+    {
+        foreach (Node n in cll)
+        {
+            Console.Write(n.Value + " ");
+        }
+    }
+
     public static void Main()
     {
-        CustomQueue<int> q = new();
+        Node nodeOne = new(1);
+        Node nodeTwo = new(1, nodeOne);
+        CustomLinkedList cll = new(nodeTwo);
 
-        q.Enqueue(1);
-        q.Enqueue(2);
-        q.Enqueue(3);
-        q.Enqueue(4);
-        q.Enqueue(5);
-        q.GetAll();
-        Console.WriteLine($"\nleft - {q.Left}");
-        Console.WriteLine($"right - {q.Right}");
-        q.Dequeue();
-        q.Enqueue(6);
-        q.Dequeue();
-        q.Enqueue(7);
-        q.Dequeue();
-        q.Enqueue(8);
-        q.Dequeue();
-        q.Enqueue(9);
-        q.GetAll();
-        Console.WriteLine($"\nleft - {q.Left}");
-        Console.WriteLine($"right - {q.Right}");
-        q.Enqueue(1);
-        q.Enqueue(2);
-        q.Enqueue(3);
-        q.Enqueue(4);
-        q.Enqueue(5);
-        q.GetAll();
-        Console.WriteLine($"\nright - {q.Right}");
+        cll.Add(new Node(2));
+
+        Console.WriteLine("Something " + cll.Size);
+
+        Node nodeThree = new(4);
+
+        //cll.Insert(2, nodeThree);
+        PrintValues(cll);
+        Console.WriteLine();
 
     }
 }
