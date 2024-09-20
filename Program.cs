@@ -1,23 +1,38 @@
-﻿using Practice.Stack;
+﻿using Practice.Queue;
 namespace Practice;
 
 class Program
 { 
     public static void Main()
     {
-        CustomStack<int> cs = new();
+        CustomQueue<int> q = new();
 
-        cs.Add(22);
-        cs.Add(10);
-        cs.Add(4);
-        cs.Add(8);
-        cs.Peek();
-        cs.GetAll();
-        cs.Remove();
-        Console.WriteLine();
-        cs.GetAll();
-        bool isEmp = cs.isEmpty();
-        Console.WriteLine($"\nIs the Stack Empty? - {isEmp}");
+        q.Enqueue(1);
+        q.Enqueue(2);
+        q.Enqueue(3);
+        q.Enqueue(4);
+        q.Enqueue(5);
+        q.GetAll();
+        Console.WriteLine($"\nleft - {q.Left}");
+        Console.WriteLine($"right - {q.Right}");
+        q.Dequeue();
+        q.Enqueue(6);
+        q.Dequeue();
+        q.Enqueue(7);
+        q.Dequeue();
+        q.Enqueue(8);
+        q.Dequeue();
+        q.Enqueue(9);
+        q.GetAll();
+        Console.WriteLine($"\nleft - {q.Left}");
+        Console.WriteLine($"right - {q.Right}");
+        q.Enqueue(1);
+        q.Enqueue(2);
+        q.Enqueue(3);
+        q.Enqueue(4);
+        q.Enqueue(5);
+        q.GetAll();
+        Console.WriteLine($"\nright - {q.Right}");
 
     }
 }
